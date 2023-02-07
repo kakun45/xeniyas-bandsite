@@ -1,0 +1,9 @@
+@use './variables' as *;
+
+@media (min-width: $breakpoint-mobile) {
+  background-color: green;
+}
+
+@media (min-width: $breakpoint-tablet) {
+  
+}
