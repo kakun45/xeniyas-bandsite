@@ -1,9 +1,17 @@
-@use './variables' as *;
+@use "./variables" as *;
+@use "./mixins" as *;
 
-@media (min-width: $breakpoint-mobile) {
-  background-color: green;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (min-width: $breakpoint-tablet) {
-  
+body {
+  font-family: $font;
+}
+
+// test
+h1 {
+  font-weight: 700; // semi-bold
 }
