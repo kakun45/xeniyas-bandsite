@@ -1,6 +1,7 @@
 *.css
 *.css.map
 /1.0 - Mockups
-/CopyDeck
+/3.0 - CopyDeck
 /2.0 - Style-Guide
 *.DS_Store
+/test-code
