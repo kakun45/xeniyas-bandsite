@@ -8,25 +8,123 @@
     <title>Band</title>
   </head>
   <body>
-    <h1>Checking the font right here</h1>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt explicabo tempore repudiandae. Commodi sint aspernatur dolorem delectus pariatur. Aperiam asperiores impedit repudiandae? Deleniti sit, velit perferendis inventore qui deserunt quia.</p>
-    <!-- Functional Requirements
-Return Home Link: Located in the top-left corner of the nav is the wordmark / logo "BANDSITE". Clicking on this should return visitors to the bio page. -->
+    <!-- Functional Requirements -->
 
-<!-- Visual Design Requirements
+    <!-- Visual Design Requirements
 The site must closely resemble the mockups and design specs provided in the design package.
 The site must be responsive at all dimensions, including between, above & below the provided break-points (between 320px and 1920px your site should be consistent)
 The site must be approached using a mobile-first design approach.
 Responsive units must be used wherever possible in order to have elements respond to changes in the browser window size. Use px values to calculate responsive units wherever necessary.
 You must use the assets provided for the hero image, the musicians image, and the photo gallery. -->
 
-<!-- Implementation Requirements
+    <!-- Implementation Requirements
 Your project must follow the proper folder structure and naming conventions outlined in the project guidelines.
 You must use Sass for your styling, and take advantage of Sass variables, plus any other Sass features that can help improve your code.
 Class naming for your styling must use BEM.
 Layout of the site must use Flexbox. Follow component based design and identify common blocks of code which you can reuse your styles for. -->
 
-<!-- Project Structure - Bandsite 1
-Remember to use your sprint-1 branch for development during this sprint, and merge your sprint-1 branch with main when submitting your sprint. -->
+    <!-- HEADER -->
+    <!-- merge your sprint-1 branch with main when submitting your sprint. -->
+    <header class="header">
+      <!-- Return Home Link: Located in the top-left corner of the nav is the wordmark / logo "BANDSITE". Clicking on this should return visitors to the bio page. -->
+      <div class="header__logo">
+        <a href="#"
+          ><img src="./assets/logos/Logo-bandsite.svg" alt="bandsite's logo"
+        /></a>
+      </div>
+      <nav>
+        <ul class="header__nav">
+          <a class="header__nav-item" href="#"
+            ><li class="underline">Biography</li></a
+          >
+          <a class="header__nav-item" href=""><li>Shows</li></a>
+        </ul>
+      </nav>
+    </header>
+
+    <header>
+      <div class="hero">
+        <h1 class="padding-left hero__title">The Bees Knees</h1>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <article class="about">
+      <h1 class="about__header">About the Musicians</h1>
+      <img
+        class="about__img"
+        src=""
+        alt="people dancing in dark strobe light"
+      />
+      <p class="about__quote">
+        “We push each other to be the best. It’s not uncommon for one of us to
+        say ‘this needs to be better, back to the drawing board’” - Bryan Teddy,
+        lead vocalist of The Bees Knees
+      </p>
+      <h2 class="about__title"></h2>
+      <p class="about__text"></p>
+    </article>
+
+    <!-- GALLERY -->
+    <section class="gallery">
+      <h1 class="gallery__title">Photo Gallery</h1>
+      <div class="gallery__img">
+        <img src="" alt="heads silhouettes in pink light" />
+      </div>
+      <div class="gallery__img">
+        <img src="" alt="dancing woman in neon light" />
+      </div>
+      <div class="gallery__img">
+        <img src="" alt="rised hands in disco light" />
+      </div>
+      <div class="gallery__img">
+        <img src="" alt="dancing woman's back in strobe lights" />
+      </div>
+      <div class="gallery__img">
+        <img src="" alt="rised hands on a background of fireworks" />
+      </div>
+      <div class="gallery__img">
+        <img src="" alt="dj holds a hand up in light and smoke" />
+      </div>
+      <div class="gallery__img">
+        <img src="" alt=" dancing crowds and neon multicolor lights" />
+      </div>
+      <div class="gallery__img">
+        <img src="" alt="DJ's tool glows in dark" />
+      </div>
+      <div class="gallery__img">
+        <img src="" alt="glowing confetti falling in dark on dancing crowd" />
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="contacts">
+        <h1 class="contacts__title">Get In Touch</h1>
+        <div class="contacts__social"></div>
+        <div class="contacts__logo"></div>
+
+        <h1 class="contacts__name">Cam Adams</h1>
+        <h1 class="contacts__dept">The Bees Knees Management</h1>
+        <p class="contacts__address">
+          503 Broadway Penthouse, New York, NY 10012, USA
+        </p>
+        <p class="contacts__email">info@thebeesknees.com</p>
+
+        <h1 class="contacts__name">Pearl Gregg</h1>
+        <h1 class="contacts__dept">Limitless Artist Group</h1>
+        <p>Booking Agent for USA / South America / Japan</p>
+        <p class="contacts__email">pearl.gregg@limitlessag.com</p>
+
+        <h1 class="contacts__name">Carson Whyte</h1>
+        <h1 class="contacts__dept">ARCH Entertainment</h1>
+        <p class="contacts__address">Booking Agent for UK / EU / AU</p>
+        <p class="contacts__email">cwhyte@archentertainment.com</p>
+
+        <p class="contacts__copyright">
+          Copyright The Bees Knees © 2021 All Rights Reserved
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
