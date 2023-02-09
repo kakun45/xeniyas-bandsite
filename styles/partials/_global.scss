@@ -20,6 +20,30 @@ h1 {
     font-weight: 700;
   }
 }
+h2 {
+  @include mobile {
+    font-size: 1.5rem; //24px
+    line-height: 2rem; //32px
+    font-weight: 700;
+  }
+  @include tablet {
+    font-size: 2.25rem; //36px
+    line-height: 2.75rem; //44px
+    font-weight: 700;
+  }
+}
+h3 {
+  @include mobile {
+    font-size: 0.875rem; //14px
+    line-height: 1.375rem; //22px
+    font-weight: 600;
+  }
+  @include tablet {
+    font-size: 1.5rem; //24px
+    line-height: 2rem; //32px
+    font-weight: 600;
+  }
+}
 
 // BODY
 body {
@@ -42,6 +66,7 @@ body {
   }
 }
 
+// HEADER
 .header {
   @include mobile {
     padding: 1rem 0 0; // this will move underline on nav if added
@@ -50,7 +75,7 @@ body {
 
     &__logo {
       // todo: need to overwrite -left to 0
-      padding-left: 0;
+      padding-left: 0rem;
     }
     &__nav {
       display: flex;
@@ -113,6 +138,8 @@ body {
     padding-left: 3rem;
   }
 }
+
+// HERO
 .hero {
   color: $primary-white;
   background-image: url("./../assets/images/hero-bio.jpg");
@@ -122,14 +149,45 @@ body {
   height: 66vw;
   background-size: cover;
 }
+
+// ABOUT
+.--headline {
+  // padding before/after headlines:
+  @include mobile {
+    padding: 1.5rem 0 1rem; // 24px, 0 16px
+  }
+  @include tablet {
+    padding: 3rem 0 2.25rem; // 48px, 0 36px
+  }
+}
 .about {
-  width: 100%;
-  text-align: center;
+  // padding between conponents
+  @include mobile {
+    padding: 0 1rem 1rem;
+  }
+  @include tablet {
+    padding: 0 2.25rem 2.25rem; //36px
+  }
 }
 .about__img {
-  width: 80%;
+  width: 100%;
+  padding-bottom: 1rem;
 }
+.about--center {
+  text-align: center;
+}
+.about__quote {
+  font-size: 0.875rem; // 14px mobile
+  font-weight: 600;
 
+// inherits all the styles of another class, as well as its own specific styles:
+  &-author {
+    @extend .about__quote;
+    padding-top: 0.5rem;
+    letter-spacing: 0.03em;
+  }
+}
+// FOOTER
 footer {
   font-weight: 400;
 }
