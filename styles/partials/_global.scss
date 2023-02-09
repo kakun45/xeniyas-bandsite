@@ -68,6 +68,7 @@ body {
 
 // HEADER
 .header {
+  // background-color: $primary-white;
   @include mobile {
     padding: 1rem 0 0; // this will move underline on nav if added
     background-color: $primary-bandsite;
@@ -84,15 +85,13 @@ body {
     }
     &__nav-item {
       width: 50%;
-      color: $primary-white;
+      // color: $primary-white;
+      color: $secondary-mercury;
       text-decoration: none;
       list-style-type: none;
     }
     // this is <li> child for nav-item.
-    // analog to:
-    // .header__nav-item li {
-    //   padding-bottom: 0.5rem;
-    // }
+    // like: .header__nav-item li {}
     li {
       padding-bottom: 0.5rem;
     }
@@ -126,6 +125,7 @@ body {
 
 .header__nav-item--underline {
   border-bottom: 2px solid $primary-white;
+  color: $primary-white; // highlight selected font
 }
 .padding-left {
   @include mobile {
@@ -148,8 +148,18 @@ body {
   align-items: center;
   height: 66vw;
   background-size: cover;
+  position: relative;
 }
-
+.img-filter {
+  position: absolute;
+  background-color: $primary-bandsite;
+  width: 100%;
+  height: 100%;
+  opacity: 50%;
+}
+.hero__title {
+  z-index: 1;
+}
 // ABOUT
 .--headline {
   // padding before/after headlines:
@@ -166,30 +176,60 @@ body {
     padding: 0 1rem 1rem;
   }
   @include tablet {
-    padding: 0 2.25rem 2.25rem; //36px
+    padding: 0 2.25rem 2.25rem; //36px in style
   }
 }
+
+.about--center {
+  //more centered starting at a tablet Sz and up
+  @include tablet {
+    width: 80%;
+    margin: auto;
+  }
+}
+
 .about__img {
   width: 100%;
   padding-bottom: 1rem;
 }
-.about--center {
-  text-align: center;
-}
+
 .about__quote {
   font-size: 0.875rem; // 14px mobile
   font-weight: 600;
-
-// inherits all the styles of another class, as well as its own specific styles:
+  padding-bottom: 0.5rem;
+  // inherits all the styles of another class, as well as its own specific styles:
   &-author {
-    @extend .about__quote;
-    padding-top: 0.5rem;
-    letter-spacing: 0.03em;
+    @include mobile {
+      font-size: 0.875rem; // 14px mobile
+      // letter-spacing: 0.03em;
+      font-weight: 600;
+      @include tablet {
+        letter-spacing: 0.03em;
+        font-size: 0.7rem; // quote gets smaller
+      }
+    }
   }
 }
+
+.about__text {
+  display: flex;
+  @include mobile {
+    flex-wrap: wrap; // 1 col text
+    gap: 1rem;
+  }
+  @include tablet {
+    flex-wrap: nowrap; // two cols text
+    gap: 2rem;
+  }
+}
+
 // FOOTER
 footer {
   font-weight: 400;
+}
+
+.gallery {
+  background-color: $secondary-alabaster;
 }
 
 // MEDIA QUERIES
