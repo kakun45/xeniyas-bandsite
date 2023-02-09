@@ -44,20 +44,18 @@ body {
 
 .header {
   @include mobile {
-    padding: 1rem 0 0; // this will move underline on nav
+    padding: 1rem 0 0; // this will move underline on nav if added
     background-color: $primary-bandsite;
     text-align: center;
 
-    // display: flex;
+    &__logo {
+      // todo: need to overwrite -left to 0
+      padding-left: 0;
+    }
     &__nav {
       display: flex;
       justify-content: space-around;
       padding: 0.5rem 0 0;
-
-      // todo tablet
-      // @include tablet {
-      //   display: flex;
-      // }
     }
     &__nav-item {
       width: 50%;
@@ -65,22 +63,55 @@ body {
       text-decoration: none;
       list-style-type: none;
     }
-    // this is <li> child for nav-item
+    // this is <li> child for nav-item.
+    // analog to:
+    // .header__nav-item li {
+    //   padding-bottom: 0.5rem;
+    // }
     li {
       padding-bottom: 0.5rem;
     }
   }
+
+  // .header for a tablet
+  @include tablet {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &__logo {
+      padding: 0 5rem 0 0;
+    }
+    &__nav-item--padding {
+      padding-left: 2rem;
+    }
+  }
 }
-// analog to:
-// .header__nav-item li {
-//   padding-bottom: 0.5rem;
+
+// .header {
+//   @include tablet {
+//     padding: 1rem 0 0;
+//     background-color: $primary-bandsite;
+//     text-align: center;
+//     display: flex;
+//     justify-content: flex-start;
+//     align-items: center;
+//   } &__logo
+//   {padding: 0 5rem 0 2rem;}
 // }
 
-.underline {
+.header__nav-item--underline {
   border-bottom: 2px solid $primary-white;
 }
 .padding-left {
-  padding-left: 1rem;
+  @include mobile {
+    padding-left: 1rem;
+  }
+  @include tablet {
+    padding-left: 2rem;
+  }
+  @include desktop {
+    padding-left: 3rem;
+  }
 }
 .hero {
   color: $primary-white;
@@ -90,6 +121,13 @@ body {
   align-items: center;
   height: 66vw;
   background-size: cover;
+}
+.about {
+  width: 100%;
+  text-align: center;
+}
+.about__img {
+  width: 80%;
 }
 
 footer {
