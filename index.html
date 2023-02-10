@@ -8,23 +8,20 @@
     <title>Band</title>
   </head>
   <body>
-    <!-- Functional Requirements -->
-
     <!-- Visual Design Requirements
-must closely resemble the mockups 
--responsive: 320px and 1920px
--mobile-first design approach.
--Responsive units -->
+    must closely resemble the mockups 
+    -responsive: 320px and 1920px
+    -mobile-first design 
+    -Responsive units -->
 
     <!-- Implementation Requirements
-
--must use Sass for your styling
--BEM.
--Flexbox.
--reuse your styles -->
+    -must use Sass for your styling
+    -BEM.
+    -Flexbox.
+    -reuse your styles -->
+    <!-- merge your sprint-1 branch with main when submitting your sprint. -->
 
     <!-- HEADER -->
-    <!-- merge your sprint-1 branch with main when submitting your sprint. -->
     <header class="header">
       <!-- Return Home Link: Located in the top-left corner of the nav is the wordmark / logo "BANDSITE". Clicking on this should return visitors to the bio page. -->
       <div class="padding-left header__logo">
@@ -103,86 +100,88 @@ must closely resemble the mockups
           class="gallery__img"
           src="./assets/images/Photo-gallery-1.jpg"
           alt="heads silhouettes in pink light" />
-
-        <!-- <div class="gallery__img"> -->
         <img
           class="gallery__img"
           src="./assets/images/Photo-gallery-2.jpg"
           alt="dancing woman in neon light" />
-        <!-- </div>
-        <div class="gallery__img"> -->
         <img
           class="gallery__img"
           src="./assets/images/Photo-gallery-3.jpg"
           alt="rised hands in disco light" />
-        <!-- </div>
-        <div class="gallery__img"> -->
         <img
           class="gallery__img"
           src="./assets/images/Photo-gallery-4.jpg"
           alt="dancing woman's back in strobe lights" />
-        <!-- </div>
-        <div class="gallery__img"> -->
         <img
           class="gallery__img"
           src="./assets/images/Photo-gallery-5.jpg"
           alt="rised hands on a background of fireworks" />
-        <!-- </div>
-        <div class="gallery__img"> -->
         <img
           class="gallery__img"
           src="./assets/images/Photo-gallery-6.jpg"
           alt="dj holds a hand up in light and smoke" />
-        <!-- </div>
-        <div class="gallery__img"> -->
         <img
           class="gallery__img"
           src="./assets/images/Photo-gallery-7.jpg"
           alt=" dancing crowds and neon multicolor lights" />
-        <!-- </div>
-        <div class="gallery__img"> -->
+
         <img
           class="gallery__img"
           src="./assets/images/Photo-gallery-8.jpg"
           alt="DJ's tool glows in dark" />
-        <!-- </div>
-        <div class="gallery__img"> -->
         <img
           class="gallery__img"
           src="./assets/images/Photo-gallery-9.jpg"
           alt="glowing confetti falling in dark on dancing crowd" />
-        <!-- </div> -->
       </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-      <div class="contacts">
+      <section class="contacts">
         <h1 class="contacts__title --headline">Get In Touch</h1>
-        <div class="contacts__social"></div>
-        <div class="contacts__logo"></div>
-
-        <h1 class="contacts__name">Cam Adams</h1>
-        <h1 class="contacts__dept">The Bees Knees Management</h1>
-        <p class="contacts__address">
-          503 Broadway Penthouse, New York, NY 10012, USA
-        </p>
+        <div class="">
+          <div class="contacts__social">
+            <img
+              src="./assets/icons/SVG/Icon-instagram.svg"
+              alt="Iconinstagram" />
+            <img src="./assets/icons/SVG/Icon-facebook.svg" alt="facebook" />
+            <img src="./assets/icons/SVG/Icon-twitter.svg" alt="twitter" />
+          </div>
+          <div class="contacts__logo">
+            <img src="./assets/logos/Logo-bandsite.svg" alt="logo bandsite" />
+          </div>
+        </div>
+        <div class="--headline">
+          <h3 class="contacts__name">Cam Adams</h3>
+          <h3 class="contacts__dept">The Bees Knees Management</h3>
+        </div>
+        <p class="contacts__address">503 Broadway Penthouse,</p>
+        <p>New York, NY 10012, USA</p>
         <p class="contacts__email">info@thebeesknees.com</p>
-
-        <h1 class="contacts__name">Pearl Gregg</h1>
-        <h1 class="contacts__dept">Limitless Artist Group</h1>
-        <p>Booking Agent for USA / South America / Japan</p>
+        <div class="--headline">
+          <h3 class="contacts__name">Pearl Gregg</h3>
+          <h3 class="contacts__dept">Limitless Artist Group</h3>
+        </div>
+        <p>Booking Agent for</p>
+        <p class="contacts__address">USA / South America / Japan</p>
         <p class="contacts__email">pearl.gregg@limitlessag.com</p>
 
-        <h1 class="contacts__name">Carson Whyte</h1>
-        <h1 class="contacts__dept">ARCH Entertainment</h1>
-        <p class="contacts__address">Booking Agent for UK / EU / AU</p>
+        <div class="--headline">
+          <h3 class="contacts__name">Carson Whyte</h3>
+          <h3 class="contacts__dept">ARCH Entertainment</h3>
+        </div>
+        <p class="contacts__address">Booking Agent for</p>
+        <p class="contacts__address">UK / EU / AU</p>
         <p class="contacts__email">cwhyte@archentertainment.com</p>
 
+        <div class="contacts__logo--mobile --headline">
+          <img src="./assets/logos/Logo-bandsite.svg" alt="logo bandsite" />
+        </div>
         <p class="contacts__copyright">
           Copyright The Bees Knees © 2021 All Rights Reserved
         </p>
-      </div>
+      </section>
     </footer>
   </body>
 </html>

@@ -27,18 +27,6 @@
 }
 
 // ABOUT
-.about,
-.gallery {
-  // padding between conponents
-  @include mobile {
-    padding: 0 1rem 1rem;
-  }
-  @include tablet {
-    // tablet & up gets extra centered
-    padding: 0 2.25rem 2.25rem; //36px in style
-  }
-}
-
 .about--center {
   //more centered starting at a tablet Sz and up
   @include tablet {
@@ -83,6 +71,10 @@
 }
 
 // GALLERY
+.gallery {
+  background-color: $secondary-alabaster;
+}
+
 .gallery__imgs {
   @include tablet {
     display: flex;

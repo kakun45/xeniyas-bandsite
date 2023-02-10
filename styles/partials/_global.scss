@@ -70,7 +70,6 @@ body {
 
 // HEADER
 .header {
-  // background-color: $primary-white;
   @include mobile {
     padding: 1rem 0 0; // this will move underline on nav if added
     background-color: $primary-bandsite;
@@ -127,7 +126,7 @@ body {
 
 .header__nav-item--underline {
   border-bottom: 2px solid $primary-white;
-  color: $primary-white; // highlight selected font
+  color: $primary-white; // highlight selected tab font
 }
 
 .padding-left {
@@ -152,13 +151,56 @@ body {
   }
 }
 
+.about,
+.gallery,
+footer {
+  // padding between conponents
+  @include mobile {
+    padding: 0 1rem 1rem;
+  }
+  @include tablet {
+    // tablet & up gets extra centered
+    padding: 0 2.25rem 2.25rem; //36px in style
+  }
+}
+
 // FOOTER
 footer {
   font-weight: 400;
+  background-color: $primary-bandsite;
+  color: $primary-white;
 }
-
-.gallery {
-  background-color: $secondary-alabaster;
+.contacts__title {
+  font-weight: 500;
+}
+.contacts__logo {
+  @include mobile {
+    display: none;
+  }
+  @include tablet {
+    display: inline;
+  }
+}
+.contacts__logo--mobile {
+  @include tablet {
+    display: none;
+  }
+}
+.contacts__social {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-start;
+}
+.contacts__email {
+  padding-top: 1rem;
+}
+.contacts__logo--mobile {
+  padding-top: 5rem;
+}
+.contacts__copyright {
+  @include mobile {
+    font-size: 0.85em;
+  }
 }
 
 // MEDIA QUERIES
