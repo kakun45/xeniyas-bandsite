@@ -30,7 +30,7 @@ h2 {
   @include tablet {
     font-size: 2.25rem; //36px
     line-height: 2.75rem; //44px
-    font-weight: 700;
+    font-weight: 600;
   }
 }
 
@@ -70,6 +70,7 @@ body {
 
 // HEADER
 .header {
+  font-weight: 600;
   @include mobile {
     padding: 1rem 0 0; // this will move underline on nav if added
     background-color: $primary-bandsite;
@@ -100,9 +101,11 @@ body {
 
   // .header for a tablet
   @include tablet {
+    line-height: 2.25rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
     &__logo {
       padding: 0 5rem 0 0;
     }
@@ -111,18 +114,6 @@ body {
     }
   }
 }
-
-// .header {
-//   @include tablet {
-//     padding: 1rem 0 0;
-//     background-color: $primary-bandsite;
-//     text-align: center;
-//     display: flex;
-//     justify-content: flex-start;
-//     align-items: center;
-//   } &__logo
-//   {padding: 0 5rem 0 2rem;}
-// }
 
 .header__nav-item--underline {
   border-bottom: 2px solid $primary-white;
@@ -170,6 +161,12 @@ footer {
   background-color: $primary-bandsite;
   color: $primary-white;
 }
+
+.footer__container {
+  max-width: 75%;
+  margin: auto;
+}
+
 .contacts {
   &__title {
     font-weight: 500;
@@ -244,49 +241,6 @@ footer {
     }
   }
 }
-
-// .contacts h3 {
-//   @include tablet {
-//     font-size: 0.7rem;
-//     line-height: 1.5rem;
-//     font-weight: 600;
-//   }
-// }
-
-// .contacts__title {
-//   font-weight: 500;
-// }
-
-// .contacts__logo {
-//   @include mobile {
-//     display: none;
-//   }
-//   @include tablet {
-//     display: inline;
-//   }
-// }
-
-// .contacts__logo--mobile {
-//   @include tablet {
-//     display: none;
-//   }
-// }
-// .contacts__social {
-//   display: flex;
-//   gap: 2rem;
-//   justify-content: flex-start;
-// }
-// .contacts__email {
-//   padding-top: 1rem;
-// }
-// .contacts__logo--mobile {
-//   padding-top: 5rem;
-// }
-// .contacts__copyright {
-//   @include mobile {
-//     font-size: 0.85em;
-//   }
-// }
 
 // MEDIA QUERIES
 @media print {

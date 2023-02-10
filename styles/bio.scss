@@ -12,6 +12,10 @@
   height: 66vw;
   background-size: cover;
   position: relative;
+  // to layer a title over the filter
+  &__title {
+    z-index: 1;
+  }
 }
 
 .img-filter {
@@ -20,10 +24,6 @@
   width: 100%;
   height: 100%;
   opacity: 50%;
-}
-
-.hero__title {
-  z-index: 1;
 }
 
 // ABOUT
@@ -41,7 +41,7 @@
 }
 
 .about__quote {
-  font-size: 0.875rem; // 14px mobile
+  font-size: 1.1rem;
   font-weight: 600;
   padding-bottom: 0.5rem;
   // inherits all the styles of another class, as well as its own specific styles:
@@ -52,7 +52,8 @@
       font-weight: 600;
       @include tablet {
         letter-spacing: 0.03em;
-        font-size: 0.7rem; // quote gets smaller
+        font-size: 0.8rem;
+        // font-size: 0.7rem; // quote gets smaller
       }
     }
   }
@@ -73,21 +74,19 @@
 // GALLERY
 .gallery {
   background-color: $secondary-alabaster;
-}
-
-.gallery__imgs {
-  @include tablet {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: space-around;
+  &__imgs {
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-around;
+    }
   }
-}
-
-.gallery__img {
-  width: 100%;
-  padding-bottom: 1rem;
-  @include tablet {
-    width: 30%;
+  &__img {
+    width: 100%;
+    padding-bottom: 1rem;
+    @include tablet {
+      width: 30%;
+    }
   }
 }
