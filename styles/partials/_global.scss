@@ -52,17 +52,17 @@ body {
   font-family: $font;
   font-weight: 400;
   @include mobile {
-    background-color: rgba(220, 252, 243, 0.851);
+    // background-color: rgba(220, 252, 243, 0.851);
     font-size: 0.8125rem; // 13px based of the typography guide
     line-height: 1.125rem; // 18px
   }
   @include tablet {
-    background-color: rgb(220, 236, 252);
+    // background-color: rgb(220, 236, 252);
     font-size: 0.875rem; // 14px based of the typography guide
     line-height: 1.25rem; // 20px
   }
   @include desktop {
-    background-color: rgb(243, 223, 234);
+    // background-color: rgb(243, 223, 234);
     font-size: 0.875rem; // 14px based of the typography guide
     line-height: 1.375rem; // 22px
   }
@@ -170,38 +170,123 @@ footer {
   background-color: $primary-bandsite;
   color: $primary-white;
 }
-.contacts__title {
-  font-weight: 500;
-}
-.contacts__logo {
-  @include mobile {
-    display: none;
+.contacts {
+  &__title {
+    font-weight: 500;
+    //to align 1st name, remove bottom for tablet
+    @include tablet {
+      padding-bottom: 0;
+    }
   }
-  @include tablet {
-    display: inline;
+
+  &__logo {
+    @include mobile {
+      display: none;
+    }
+    @include tablet {
+      display: inline;
+      &--mobile {
+        @include tablet {
+          display: none;
+        }
+      }
+    }
+    &--mobile {
+      padding-top: 5rem;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start;
+
+    //  moves sosial logos to the left
+    @include tablet {
+      margin-right: 12rem;
+    }
+    @include desktop {
+      margin-right: 45rem;
+    }
+  }
+
+  &__email {
+    padding-top: 1rem;
+  }
+
+  &__copyright {
+    @include mobile {
+      font-size: 0.85em;
+    }
+    @include tablet {
+      padding-top: 3rem;
+    }
+  }
+  &--tablet {
+    @include tablet {
+      width: 100%;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+  }
+  &__box--tablet {
+    @include tablet {
+      display: flex;
+      gap: 4rem;
+    }
+  }
+  h3 {
+    @include tablet {
+      font-size: 0.7rem;
+      line-height: 1.5rem;
+      font-weight: 600;
+    }
   }
 }
-.contacts__logo--mobile {
-  @include tablet {
-    display: none;
-  }
-}
-.contacts__social {
-  display: flex;
-  gap: 2rem;
-  justify-content: flex-start;
-}
-.contacts__email {
-  padding-top: 1rem;
-}
-.contacts__logo--mobile {
-  padding-top: 5rem;
-}
-.contacts__copyright {
-  @include mobile {
-    font-size: 0.85em;
-  }
-}
+
+// .contacts h3 {
+//   @include tablet {
+//     font-size: 0.7rem;
+//     line-height: 1.5rem;
+//     font-weight: 600;
+//   }
+// }
+
+// .contacts__title {
+//   font-weight: 500;
+// }
+
+// .contacts__logo {
+//   @include mobile {
+//     display: none;
+//   }
+//   @include tablet {
+//     display: inline;
+//   }
+// }
+
+// .contacts__logo--mobile {
+//   @include tablet {
+//     display: none;
+//   }
+// }
+// .contacts__social {
+//   display: flex;
+//   gap: 2rem;
+//   justify-content: flex-start;
+// }
+// .contacts__email {
+//   padding-top: 1rem;
+// }
+// .contacts__logo--mobile {
+//   padding-top: 5rem;
+// }
+// .contacts__copyright {
+//   @include mobile {
+//     font-size: 0.85em;
+//   }
+// }
 
 // MEDIA QUERIES
 @media print {
