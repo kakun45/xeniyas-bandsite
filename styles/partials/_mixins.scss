@@ -1,20 +1,17 @@
 @use "./variables" as *;
 
-// background-color: green;
 @mixin mobile {
   @media screen and (min-width: $breakpoint-mobile) {
     @content;
   }
 }
 
-// background-color: blue;
 @mixin tablet {
   @media screen and (min-width: $breakpoint-tablet) {
     @content;
   }
 }
 
-// background-color: pink;
 @mixin desktop {
   @media screen and (min-width: $breakpoint-desktop) {
     @content;

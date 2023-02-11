@@ -52,17 +52,14 @@ body {
   font-family: $font;
   font-weight: 400;
   @include mobile {
-    // background-color: rgba(220, 252, 243, 0.851);
     font-size: 0.8125rem; // 13px based of the typography guide
     line-height: 1.125rem; // 18px
   }
   @include tablet {
-    // background-color: rgb(220, 236, 252);
     font-size: 0.875rem; // 14px based of the typography guide
     line-height: 1.25rem; // 20px
   }
   @include desktop {
-    // background-color: rgb(243, 223, 234);
     font-size: 0.875rem; // 14px based of the typography guide
     line-height: 1.375rem; // 22px
   }
@@ -92,7 +89,6 @@ body {
       list-style-type: none;
     }
     // this is <li> child for nav-item.
-    // like: .header__nav-item li {}
     li {
       padding-bottom: 0.5rem;
     }

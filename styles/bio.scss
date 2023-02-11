@@ -48,12 +48,10 @@
   &-author {
     @include mobile {
       font-size: 0.875rem; // 14px mobile
-      // letter-spacing: 0.03em;
       font-weight: 600;
       @include tablet {
         letter-spacing: 0.03em;
-        font-size: 0.8rem;
-        // font-size: 0.7rem; // quote gets smaller
+        font-size: 0.8rem; // quote size
       }
     }
   }
