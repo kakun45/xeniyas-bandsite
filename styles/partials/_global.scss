@@ -116,8 +116,23 @@ body {
 }
 
 .header__nav-item--underline {
-  border-bottom: 3px solid $primary-white;
   color: $primary-white; // highlight selected tab font
+  @include mobile {
+    border-bottom: 3px solid $primary-white;
+  }
+  @include tablet {
+    border-bottom: 3px solid $primary-white;
+  }
+  @include desktop {
+    border-bottom: 3px solid $primary-bandsite;
+  }
+}
+
+.header__nav-item--underline:hover {
+  @include desktop {
+    border-bottom: 3px solid $primary-white;
+    font-weight: 600;
+  }
 }
 
 .padding-left {
