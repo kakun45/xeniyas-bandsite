@@ -124,6 +124,7 @@ body {
   }
 }
 
+/* mouse over nav tab / link */
 .header__nav-item--underline:hover {
   @include desktop {
     border-bottom: 3px solid $primary-white;
