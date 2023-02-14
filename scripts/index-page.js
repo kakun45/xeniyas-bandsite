@@ -1,5 +1,5 @@
 // You must have an array in JavaScript with 3 default comment objects to start. Comments must have a name, a timestamp, and the comment text.
-let comment = [
+let comments = [
   {
     name: "Connor Walton",
     timestamp: "02/17/2021",
@@ -23,4 +23,19 @@ let comment = [
 // window.onload();
 window.addEventListener("load", () => {
   console.log("js of INDEX is loaded");
+  const parent = document.querySelector(".default-comment");
+  console.log(parent);
+  // for (let i = 0; i < comments.length; i++) {
+  const commentTitle = document.createElement("h3");
+  const commentDate = document.createElement("p");
+  const commentText = document.createElement("p");
+  // console.log(commentTitle);
+  commentTitle.innerHTML = `${comments[0]["name"]}`;
+  console.log(commentTitle);
+  commentDate.innerHTML = `${comments[0]["timestamp"]}`;
+  commentText.innerHTML = `${comments[0]["comment"]}`;
+  parent.appendChild(commentTitle);
+  parent.appendChild(commentDate);
+  parent.appendChild(commentText);
+  // }
 });
