@@ -175,9 +175,7 @@ form {
 .comments__avatar {
   background-color: $secondary-mercury;
   background-size: cover;
-  // margin: 0 1rem 0 0; // todo: fix margin on input form next to --img
   border-radius: 50%;
-  // margin-right: 1rem;
   @include mobile {
     width: 2.25rem;
     height: 2.25rem;
@@ -198,18 +196,23 @@ form {
   gap: 1rem;
   justify-content: space-between;
 }
-// comment form
+// Form
 input[type="text"],
 textarea {
   width: 100%;
   height: 2.5rem;
-  // color: $secondary-mercury; todo: this is on input text
+  // color: $secondary-mercury; // this is on input text, don't touch it!
   font-family: $font;
   border-radius: 4px;
   border: 1px solid $secondary-mercury;
   background-color: $secondary-alabaster;
-  margin: 7px 0 20px;
-  padding-left: 1rem;
+  margin: 0.4375rem 0 1.25rem;
+  @include mobile {
+    padding: 0.75rem;
+  }
+  @include tablet {
+    padding: 1rem;
+  }
 }
 input[type="submit"],
 .comment-button {

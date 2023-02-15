@@ -89,9 +89,12 @@
   }
 }
 // COMMENTS
-.comment-date {
+// in .JS
+.comment__date {
   color: $primary-silver;
-  font-size: larger;
+}
+.comment__label {
+  color: $primary-silver;
 }
 .comments__titleHolder {
   display: flex;
@@ -99,12 +102,17 @@
   margin-bottom: 1rem;
 }
 .comments__contentHolder {
-  width: 90%;
+  width: calc((100% / 4) * 3.3); // to not flatten a gray circle avatar
 }
 .comments__child {
   display: flex;
   gap: 1rem;
   // align-items: flex-start; // maybe not needed
+}
+// Active state input fields
+textarea:focus,
+input:focus {
+  outline: solid 1px $primary-bandsite;
 }
 
 // Grayscale default / color on hover

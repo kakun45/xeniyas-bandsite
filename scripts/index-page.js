@@ -28,7 +28,8 @@ window.addEventListener("load", () => {
 //
 function insertComments_db() {
   const parent = document.querySelector(".default-comments");
-
+  // clears fields to efill them
+  parent.innerText = "";
   for (let i = 0; i < comments_db.length; i++) {
     const child = document.createElement("div");
     child.classList.add("comments__child");
@@ -44,7 +45,7 @@ function insertComments_db() {
     // create a comment el: name,date,text
     const commentTitle = document.createElement("h3");
     const commentDate = document.createElement("p");
-    commentDate.classList.add("comment-date");
+    commentDate.classList.add("comment__date");
     const commentText = document.createElement("p");
     commentTitle.innerText = comments_db[i]["name"];
     commentDate.innerText = comments_db[i]["timestamp"];
@@ -78,13 +79,14 @@ const submitForm = (e) => {
   // validate input fields
   if (nameVal.length > 0 && commentVal.length > 0) {
     // todo: strip input
-    // console.log(nameVal, commentVal);
     let newComment = {
       name: nameVal,
       timestamp: formatDate(),
       comment: commentVal,
     };
-    // insert infront of the db arr
+    e.target.name.value = "";
+    e.target.comment.value = "";
+    // insert newComm infront of the db arr
     comments_db.unshift(newComment);
     insertComments_db();
   } else {
