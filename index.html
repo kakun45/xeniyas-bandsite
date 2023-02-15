@@ -129,24 +129,26 @@
     <section class="comments">
       <h2 class="comments__title --headline">Join the Conversation</h2>
       <div class="comments__box">
-        <div class="comments__avatar--img">
-          <!-- <img
-          class="comments__avatar --gray"
-          src="./assets/images/Mohan-muruge.jpg"
-          alt="man's face in a profile" /> -->
-        </div>
-        <form>
-          <label for="name">NAME</label>
-          <input type="text" name="" id="" placeholder="Enter your name" />
-          <br />
+        <div class="comments__avatar--img"></div>
+        <!-- Form -->
+        <form method="POST">
+          <label class="TODO" for="name">NAME</label>
+          <input type="text" name="" id="name" placeholder="Enter your name" />
+
           <label for="comment">COMMENT</label>
-          <input type="text" name="" id="" placeholder="Add a new comment" />
+          <textarea
+            class="comments__textarea"
+            type="text"
+            name=""
+            id="comment"
+            placeholder="Add a new comment"></textarea>
           <br />
-          <input type="submit" value="COMMENT" /> <br />
+
+          <button class="comment-button">COMMENT</button>
         </form>
       </div>
       <hr class="divider" />
-      <!-- default comments -->
+      <!-- default comments to insert with JS -->
       <div class="default-comments"></div>
     </section>
 

@@ -1,5 +1,5 @@
 // You must have an array in JavaScript with 3 default comment objects to start. Comments must have a name, a timestamp, and the comment text.
-const comments = [
+const comments_db = [
   {
     name: "Connor Walton",
     timestamp: "02/17/2021",
@@ -23,53 +23,78 @@ const comments = [
 // window.onload(); // todo: research
 window.addEventListener("load", () => {
   // console.log("js of INDEX is loaded"); //test if works
-
-  function insertDefaultComm() {
-    const parent = document.querySelector(".default-comments");
-
-    for (let i = 0; i < comments.length; i++) {
-      const child = document.createElement("div");
-      child.classList.add("comments__child");
-
-      // create a divider
-      const divider = document.createElement("hr");
-      divider.classList.add("divider");
-
-      // a gray circle for an avatar
-      const avatar = document.createElement("div");
-      avatar.classList.add("comments__avatar");
-
-      // create a comment el: name,date,text
-      const commentTitle = document.createElement("h3");
-      const commentDate = document.createElement("p");
-      commentDate.classList.add("comment-date");
-      const commentText = document.createElement("p");
-      commentTitle.innerText = comments[i]["name"];
-      commentDate.innerText = comments[i]["timestamp"];
-      commentText.innerText = comments[i]["comment"];
-
-      // titleHolder & contentHolder
-      const titleHolder = document.createElement("div");
-      titleHolder.classList.add("comments__titleHolder");
-      titleHolder.appendChild(commentTitle);
-      titleHolder.appendChild(commentDate);
-
-      const contentHolder = document.createElement("div");
-      contentHolder.classList.add("comments__contentHolder");
-      contentHolder.appendChild(titleHolder);
-      contentHolder.appendChild(commentText);
-
-      // pull el together
-      child.appendChild(avatar);
-      child.appendChild(contentHolder);
-      parent.appendChild(child);
-
-      parent.appendChild(divider);
-    }
-  }
-
-  insertDefaultComm();
+  insertComments_db();
 });
+//
+function insertComments_db() {
+  const parent = document.querySelector(".default-comments");
+
+  for (let i = 0; i < comments_db.length; i++) {
+    const child = document.createElement("div");
+    child.classList.add("comments__child");
+
+    // create a divider
+    const divider = document.createElement("hr");
+    divider.classList.add("divider");
+
+    // a gray circle for an avatar
+    const avatar = document.createElement("div");
+    avatar.classList.add("comments__avatar");
+
+    // create a comment el: name,date,text
+    const commentTitle = document.createElement("h3");
+    const commentDate = document.createElement("p");
+    commentDate.classList.add("comment-date");
+    const commentText = document.createElement("p");
+    commentTitle.innerText = comments_db[i]["name"];
+    commentDate.innerText = comments_db[i]["timestamp"];
+    commentText.innerText = comments_db[i]["comment"];
+
+    // titleHolder & contentHolder
+    const titleHolder = document.createElement("div");
+    titleHolder.classList.add("comments__titleHolder");
+    titleHolder.appendChild(commentTitle);
+    titleHolder.appendChild(commentDate);
+
+    const contentHolder = document.createElement("div");
+    contentHolder.classList.add("comments__contentHolder");
+    contentHolder.appendChild(titleHolder);
+    contentHolder.appendChild(commentText);
+
+    // pull el together
+    child.appendChild(avatar);
+    child.appendChild(contentHolder);
+    parent.appendChild(child);
+
+    parent.appendChild(divider);
+  }
+}
+
+const submitForm = (e) => {
+  e.preventDefault();
+
+  const nameVal = e.target.name.value;
+  const commentVal = e.target.comment.value;
+  // validate input fields
+  if (nameVal.length > 0 && commentVal.length > 0) {
+    // todo: strip input
+    // console.log(nameVal, commentVal);
+    let newComment = {
+      name: nameVal,
+      timestamp: formatDate(),
+      comment: commentVal,
+    };
+    // insert infront of the db arr
+    comments_db.unshift(newComment);
+    insertComments_db();
+  } else {
+    // don't do this in real life!
+    alert("Bad Bad Panda! (Pls, fill out the fields!)");
+    // todo: style the fields' outline #red
+  }
+};
+const form = document.querySelector("form");
+form.addEventListener("submit", submitForm);
 
 // use to format date on added comment
 function formatDate() {
@@ -85,4 +110,3 @@ function formatDate() {
   let date = `${month}/${day}/${year}`;
   return date;
 }
-// console.log("test now:", formatDate()); // call to check
