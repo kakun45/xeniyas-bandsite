@@ -1,5 +1,5 @@
 // You must have an array in JavaScript with 3 default comment objects to start. Comments must have a name, a timestamp, and the comment text.
-let comments = [
+const comments = [
   {
     name: "Connor Walton",
     timestamp: "02/17/2021",
@@ -14,28 +14,75 @@ let comments = [
   },
   {
     name: "Miles Acosta",
-    timestamp: "12/20/2020", // todo: new Date(),
+    timestamp: "12/20/2020", // todo: use formatDate()
     comment:
       "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
   },
 ];
 
-// window.onload();
+// window.onload(); // todo: research
 window.addEventListener("load", () => {
-  console.log("js of INDEX is loaded");
-  const parent = document.querySelector(".default-comment");
-  console.log(parent);
-  // for (let i = 0; i < comments.length; i++) {
-  const commentTitle = document.createElement("h3");
-  const commentDate = document.createElement("p");
-  const commentText = document.createElement("p");
-  // console.log(commentTitle);
-  commentTitle.innerHTML = `${comments[0]["name"]}`;
-  console.log(commentTitle);
-  commentDate.innerHTML = `${comments[0]["timestamp"]}`;
-  commentText.innerHTML = `${comments[0]["comment"]}`;
-  parent.appendChild(commentTitle);
-  parent.appendChild(commentDate);
-  parent.appendChild(commentText);
-  // }
+  // console.log("js of INDEX is loaded"); //test if works
+
+  function insertDefaultComm() {
+    const parent = document.querySelector(".default-comments");
+
+    for (let i = 0; i < comments.length; i++) {
+      const child = document.createElement("div");
+      child.classList.add("comments__child");
+
+      // create a divider
+      const divider = document.createElement("hr");
+      divider.classList.add("divider");
+
+      // a gray circle for an avatar
+      const avatar = document.createElement("div");
+      avatar.classList.add("comments__avatar");
+
+      // create a comment el: name,date,text
+      const commentTitle = document.createElement("h3");
+      const commentDate = document.createElement("p");
+      commentDate.classList.add("comment-date");
+      const commentText = document.createElement("p");
+      commentTitle.innerText = comments[i]["name"];
+      commentDate.innerText = comments[i]["timestamp"];
+      commentText.innerText = comments[i]["comment"];
+
+      // titleHolder & contentHolder
+      const titleHolder = document.createElement("div");
+      titleHolder.classList.add("comments__titleHolder");
+      titleHolder.appendChild(commentTitle);
+      titleHolder.appendChild(commentDate);
+
+      const contentHolder = document.createElement("div");
+      contentHolder.classList.add("comments__contentHolder");
+      contentHolder.appendChild(titleHolder);
+      contentHolder.appendChild(commentText);
+
+      // pull el together
+      child.appendChild(avatar);
+      child.appendChild(contentHolder);
+      parent.appendChild(child);
+
+      parent.appendChild(divider);
+    }
+  }
+
+  insertDefaultComm();
 });
+
+// use to format date on added comment
+function formatDate() {
+  const today = new Date();
+  let day = today.getDate();
+  let month = today.getMonth() + 1; // 0 based
+  const year = today.getFullYear();
+  if (day < 10) {
+    day = "0" + day;
+  } else if (month < 10) {
+    month = "0" + month;
+  }
+  let date = `${month}/${day}/${year}`;
+  return date;
+}
+// console.log("test now:", formatDate()); // call to check
