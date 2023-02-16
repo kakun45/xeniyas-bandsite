@@ -101,14 +101,25 @@
   justify-content: space-between;
   margin-bottom: 1rem;
 }
-.comments__contentHolder {
-  width: calc((100% / 4) * 3.3); // to not flatten a gray circle avatar
+form, .comments__contentHolder {
+  width: 90%; // calc((100% / 4) * 3.3); // to not flatten a gray circle avatar
 }
-.comments__child {
+form {
+  position: relative; // todo for tablet button on the right
+}
+.comments__box, .comments__child {
+  // height: 4rem;
   display: flex;
   gap: 1rem;
-  // align-items: flex-start; // maybe not needed
+  justify-content: space-between;
 }
+
+// .comments__child {
+//   display: flex;
+//   gap: 1rem;
+//   // align-items: flex-start; // maybe not needed
+// }
+
 // Active state input fields
 textarea:focus,
 input:focus {
