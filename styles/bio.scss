@@ -4,26 +4,7 @@
 
 // HERO
 .hero {
-  color: $primary-white;
-  background-image: url("./../assets/images/hero-bio.jpg");
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 66vw;
-  background-size: cover;
-  position: relative;
-  // to layer a title over the filter
-  &__title {
-    z-index: 1;
-  }
-}
-
-.img-filter {
-  position: absolute;
-  background-color: $primary-bandsite;
-  width: 100%;
-  height: 100%;
-  opacity: 50%;
+  @include hero-base("./../assets/images/hero-bio.jpg")
 }
 
 // ABOUT
@@ -88,37 +69,37 @@
     }
   }
 }
+
 // COMMENTS
 // in .JS
 .comment__date {
   color: $primary-silver;
 }
+
 .comment__label {
   color: $primary-silver;
 }
+
 .comments__titleHolder {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
 }
+
 form, .comments__contentHolder {
   width: 90%; // calc((100% / 4) * 3.3); // to not flatten a gray circle avatar
 }
+
 form {
   position: relative; // todo for tablet button on the right
 }
+
 .comments__box, .comments__child {
   // height: 4rem;
   display: flex;
   gap: 1rem;
   justify-content: space-between;
 }
-
-// .comments__child {
-//   display: flex;
-//   gap: 1rem;
-//   // align-items: flex-start; // maybe not needed
-// }
 
 // Active state input fields
 textarea:focus,

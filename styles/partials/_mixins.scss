@@ -17,3 +17,21 @@
     @content;
   }
 }
+
+@mixin hero-base($url) {
+  color: $primary-white;
+  background-image: url($url);
+  display: flex;
+  justify-content: flex-start;
+  // align-items: center;
+  height: 66vw;
+  width: 100%;
+  background-size: cover;
+  position: relative;
+  // to layer a title over the filter
+  justify-content: center;
+  flex-direction: column;
+  &__title {
+    z-index: 1;
+  }
+}
