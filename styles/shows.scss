@@ -58,3 +58,18 @@
     height: 10rem;
   }
 }
+
+.shows-box--style {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+}
+
+.shows__li {
+  // list-style-type: none;
+}
+
+.shows__li__title {
+  color: $primary-silver;
+}
