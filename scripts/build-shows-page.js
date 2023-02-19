@@ -42,7 +42,6 @@ function populateShows(showsArr) {
   showsArr.forEach((element) => {
     console.log(element);
     const child = document.createElement("li");
-    child.classList.add("shows__li");
 
     const childLableDate = document.createElement("h3");
     childLableDate.innerText = "DATE";
@@ -71,7 +70,7 @@ function populateShows(showsArr) {
     const hr = document.createElement("hr");
     hr.classList.add("divider");
 
-    child.classList.add("shows-box--li");
+    child.classList.add("shows-box__li");
 
     child.append(
       childLableDate,

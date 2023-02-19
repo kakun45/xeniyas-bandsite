@@ -3,6 +3,7 @@
 @use "./partials/mixins" as *;
 
 .hero-shows {
+  background-position: 16% 57%; // to position img in a view
   @include hero-base("./../assets/images/hero-shows.jpg");
   &__title--padding {
     @include mobile {
@@ -20,11 +21,10 @@
   @include desktop {
     align-items: baseline;
   }
-}
-
-.hero-shows--desktop {
-  @include desktop {
-    display: flex;
+  &--desktop {
+    @include desktop {
+      display: flex;
+    }
   }
 }
 
@@ -47,22 +47,40 @@
   }
 }
 
-.shows-box--style {
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  padding: 0;
-}
-
-.shows-box--li {
-  @include tablet {
+.shows {
+  @include desktop {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    & h5 {
+    justify-content: space-around;
+    & .--headline {
       flex: 1;
     }
-    border-bottom: 1px $secondary-mercury solid;
+    &-box {
+      flex: 4;
+    }
+  }
+  &-box--style {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+  }
+  &-box__li {
+    @include tablet {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      & h5 {
+        flex: 1;
+      }
+      border-bottom: 1px $secondary-mercury solid;
+    }
+  }
+  &__li__title {
+    color: $primary-silver;
+    font-size: 0.575rem;
+    @include tablet {
+      display: none;
+    }
   }
 }
 
@@ -73,23 +91,21 @@
   @include tablet {
     display: flex;
     color: $primary-silver;
-    width: 77%;
     flex: 1;
     // start at the same cols, spread even
     & p {
       flex: 1;
     }
   }
-}
-
-.shows__li__title {
-  color: $primary-silver;
-  font-size: 0.575rem;
-  @include tablet {
-    display: none;
+  &--fake-button {
+    width: 160px;
+  }
+  @include desktop {
+    padding-top: 3.9rem;
   }
 }
 
+// button for shows page
 .comment-button2 {
   @extend .comment-button;
   //  space above a button on mobile

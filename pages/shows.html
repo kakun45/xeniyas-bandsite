@@ -8,7 +8,6 @@
     <title>Shows</title>
   </head>
   <body>
-    <!-- There must be a song that can be played using SoundCloud, you choose. -->
     <!-- HEADER -->
     <header class="header">
       <!-- Return Home Link: Located in the top-left corner of the nav is the wordmark / logo "BANDSITE"- the bio page. -->
@@ -23,7 +22,7 @@
             <li class="header__nav-item--padding">Biography</li>
           </a>
           <a class="header__nav-item" href="#">
-            <li class="header__nav-item--underline header__nav-item--margin">
+            <li class="header__nav-item--active header__nav-item--margin">
               Shows
             </li>
           </a>
@@ -35,6 +34,7 @@
       <div class="hero-shows">
         <h3 class="hero-shows__title--padding">Beautiful Beasts Album</h3>
         <div class="hero-shows--desktop">
+          <!-- a song that can be played using SoundCloud -->
           <h1 class="padding-left hero-shows__title">
             Queen of Yellow x For The Stings
           </h1>
@@ -56,13 +56,17 @@
     <!-- SHOWS  -->
     <section class="shows">
       <h2 class="--headline">Shows</h2>
-      <div class="tablet-header">
-        <p>DATE</p>
-        <p>VENUE</p>
-        <p>LOCATION</p>
-      </div>
       <div class="shows-box">
-        <ul class="shows-box--style"></ul>
+        <ul class="shows-box--style">
+          <li>
+            <div class="tablet-header">
+              <p>DATE</p>
+              <p>VENUE</p>
+              <p>LOCATION</p>
+              <div class="tablet-header--fake-button"></div>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 

@@ -30,7 +30,6 @@ h2 {
   @include tablet {
     font-size: 2.25rem; //36px
     line-height: 2.75rem; //44px
-    // font-weight: 600;
   }
 }
 
@@ -68,6 +67,15 @@ body {
 // HEADER
 .header {
   font-weight: 600;
+  /* mouse over nav tab / link */
+  &__nav-item--active {
+    color: $primary-white; // highlight selected tab font
+    border-bottom: 3px solid $primary-white;
+  }
+  &__nav-item--margin:hover,
+  &__nav-item--padding:hover {
+    border-bottom: 3px solid $primary-white;
+  }
   @include mobile {
     padding: 1rem 0 0; // this will move underline on nav if added
     background-color: $primary-bandsite;
@@ -86,7 +94,6 @@ body {
     }
     &__nav-item {
       width: 50%;
-      // color: $primary-white;
       color: $secondary-mercury;
       text-decoration: none;
       list-style-type: none;
@@ -94,6 +101,9 @@ body {
     // this is <li> child for nav-item.
     li {
       padding-bottom: 0.5rem;
+      @include desktop {
+        padding-bottom: 0.7rem;
+      }
     }
   }
 
@@ -115,26 +125,8 @@ body {
       margin-left: 2rem;
     }
   }
-}
-
-.header__nav-item--underline {
-  color: $primary-white; // highlight selected tab font
-  @include mobile {
-    border-bottom: 3px solid $primary-white;
-  }
-  @include tablet {
-    border-bottom: 3px solid $primary-white;
-  }
   @include desktop {
-    border-bottom: 3px solid $primary-bandsite;
-  }
-}
-
-/* mouse over nav tab / link */
-.header__nav-item--underline:hover {
-  @include desktop {
-    border-bottom: 3px solid $primary-white;
-    font-weight: 600;
+    padding: 1rem 5rem 0;
   }
 }
 
@@ -167,9 +159,6 @@ body {
   @include tablet {
     padding: 0 2rem 1.5rem;
   }
-  @include desktop {
-    padding: 0 3rem 1.5rem;
-  }
 }
 
 .about,
@@ -184,6 +173,9 @@ footer,
   @include tablet {
     // tablet & up gets extra centered
     padding: 0 2.25rem 2.25rem; //36px in style
+  }
+  @include desktop {
+    padding: 0 5.25rem 2.25rem;
   }
 }
 
@@ -240,7 +232,7 @@ input[type="submit"],
     width: 10rem;
     min-width: 10rem;
     padding: 0 2rem;
-    position: absolute; 
+    position: absolute;
     right: 0;
   }
   background-color: $primary-bandsite;

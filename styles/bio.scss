@@ -83,11 +83,11 @@
 
 form,
 .comments__contentHolder {
-  width: 90%; // calc((100% / 4) * 3.3); // to not flatten a gray circle avatar
+  width: 90%; // to not flatten a gray circle avatar
 }
 
 form {
-  position: relative; // for tablet button on the right
+  position: relative; // on tablet -> button to the right
 }
 
 .comments__box,

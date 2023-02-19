@@ -8,9 +8,6 @@
     <title>Band</title>
   </head>
   <body>
-    <!-- Visual Design Requirements
-    merge your sprint-1 branch with main when submitting your sprint. -->
-
     <!-- HEADER -->
     <header class="header">
       <!-- Return Home Link: Located in the top-left corner of the nav is the wordmark / logo "BANDSITE". Clicking on this should return visitors to the bio page. -->
@@ -22,7 +19,7 @@
       <nav>
         <ul class="header__nav">
           <a class="header__nav-item" href="#">
-            <li class="header__nav-item--underline">Biography</li>
+            <li class="header__nav-item--active">Biography</li>
           </a>
           <a class="header__nav-item" href="./pages/shows.html">
             <li class="header__nav-item--margin">Shows</li>
@@ -46,7 +43,6 @@
           class="about__img"
           src="./assets/images/band.jpg"
           alt="people dancing in dark strobe light" />
-
         <p class="about__quote">
           “We push each other to be the best. It’s not uncommon for one of us to
           say ‘this needs to be better, back to the drawing board’”
@@ -114,7 +110,6 @@
           class="gallery__img grayscale"
           src="./assets/images/Photo-gallery-7.jpg"
           alt=" dancing crowds and neon multicolor lights" />
-
         <img
           class="gallery__img grayscale"
           src="./assets/images/Photo-gallery-8.jpg"
@@ -125,6 +120,7 @@
           alt="glowing confetti falling in dark on dancing crowd" />
       </div>
     </section>
+
     <!-- Comments Section -->
     <section class="comments">
       <h2 class="comments__title --headline">Join the Conversation</h2>
@@ -134,7 +130,6 @@
         <form method="POST">
           <label class="comment__label" for="name">NAME</label>
           <input type="text" name="" id="name" placeholder="Enter your name" />
-
           <label class="comment__label" for="comment">COMMENT</label>
           <textarea
             class="comments__textarea"
@@ -143,7 +138,6 @@
             id="comment"
             placeholder="Add a new comment"></textarea>
           <br />
-
           <button class="comment-button">COMMENT</button>
         </form>
       </div>
