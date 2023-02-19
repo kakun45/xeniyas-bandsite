@@ -237,10 +237,10 @@ input[type="submit"],
   height: 2.5rem; //40px for all screen Sz
   margin: 0 0 0.5rem;
   @include tablet {
-    width: 10rem; // todo may need to force
+    width: 10rem;
     min-width: 10rem;
     padding: 0 2rem;
-    position: absolute; // todo: check on input[type="submit"]
+    position: absolute; 
     right: 0;
   }
   background-color: $primary-bandsite;

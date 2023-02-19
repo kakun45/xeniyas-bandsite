@@ -4,7 +4,6 @@
 
 .hero-shows {
   @include hero-base("./../assets/images/hero-shows.jpg");
-
   &__title--padding {
     @include mobile {
       margin: 1rem 0 0 1rem;
@@ -13,7 +12,6 @@
       margin: 1rem 0 0 2rem;
     }
     @include desktop {
-      // margin: 1rem 0 0 3rem;
       margin: 1rem 0 2rem 3rem;
       padding-left: 3rem;
     }
@@ -27,7 +25,6 @@
 .hero-shows--desktop {
   @include desktop {
     display: flex;
-    // gap: 7rem;
   }
 }
 
@@ -41,12 +38,7 @@
   @include desktop {
     width: 40%;
   }
-
   bottom: 0;
-}
-
-.visualAudible__body {
-  display: none; //  todo remove
 }
 
 .iframe {
@@ -65,7 +57,6 @@
 .shows-box--li {
   @include tablet {
     display: flex;
-    /* flex: 1; */ // goes on tablet's inner el
     justify-content: flex-start;
     align-items: center;
     & h5 {
@@ -101,7 +92,7 @@
 
 .comment-button2 {
   @extend .comment-button;
-  //  space above a button
+  //  space above a button on mobile
   @include mobile {
     margin-top: 1rem;
   }
