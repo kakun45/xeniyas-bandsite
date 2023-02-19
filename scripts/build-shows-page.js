@@ -47,25 +47,29 @@ function populateShows(showsArr) {
     const childLableDate = document.createElement("h3");
     childLableDate.innerText = "DATE";
     childLableDate.classList.add("shows__li__title");
-    const childDate = document.createElement("p");
+    const childDate = document.createElement("h5");
+    childDate.style.fontWeight = "600";
     childDate.innerText = element.date;
 
     const childLableVenue = document.createElement("h3");
     childLableVenue.innerText = "VENUE";
     childLableVenue.classList.add("shows__li__title");
-    const childVenue = document.createElement("p");
+    const childVenue = document.createElement("h5");
+    childVenue.style.fontWeight = "500";
     childVenue.innerText = element.venue;
 
     const childLableLocation = document.createElement("h3");
     childLableLocation.innerText = "LOCATION";
     childLableLocation.classList.add("shows__li__title");
-    const childLocation = document.createElement("p");
+    const childLocation = document.createElement("h5");
+    childLocation.style.fontWeight = "500";
     childLocation.innerText = element.location;
 
     const button = document.createElement("button");
-    button.classList.add("comment-button");
+    button.classList.add("comment-button2");
     button.innerText = "BUY TICKETS";
     const hr = document.createElement("hr");
+    hr.classList.add("divider");
 
     child.classList.add("shows-box--li");
 
