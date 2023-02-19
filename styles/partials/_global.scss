@@ -356,3 +356,7 @@ footer {
     background-color: transparent;
   }
 }
+.error-state {
+  border: 1px solid $error-state;
+  color: $error-state;
+}

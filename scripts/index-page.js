@@ -22,13 +22,12 @@ const comments_db = [
 
 // window.onload(); // todo: research
 window.addEventListener("load", () => {
-  // console.log("js of INDEX is loaded"); //test if works
   insertComments_db();
 });
-//
+
 function insertComments_db() {
   const parent = document.querySelector(".default-comments");
-  // clears fields to efill them
+  // clears fields to refill them
   parent.innerText = "";
   for (let i = 0; i < comments_db.length; i++) {
     const child = document.createElement("div");
@@ -62,7 +61,7 @@ function insertComments_db() {
     contentHolder.appendChild(titleHolder);
     contentHolder.appendChild(commentText);
 
-    // pull el together
+    // put an el together
     child.appendChild(avatar);
     child.appendChild(contentHolder);
     parent.appendChild(child);
@@ -76,9 +75,11 @@ const submitForm = (e) => {
 
   const nameVal = e.target.name.value;
   const commentVal = e.target.comment.value;
+  // strip input of before/after spaces
+  nameVal.trim();
+  commentVal.trim();
   // validate input fields
   if (nameVal.length > 0 && commentVal.length > 0) {
-    // todo: strip input
     let newComment = {
       name: nameVal,
       timestamp: formatDate(),
@@ -89,10 +90,11 @@ const submitForm = (e) => {
     // insert newComm infront of the db arr
     comments_db.unshift(newComment);
     insertComments_db();
-  } else {
-    // don't do this in real life!
-    alert("Bad Bad Panda! (Pls, fill out the fields!)");
-    // todo: style the fields' outline #red
+  } else if (nameVal.length === 0 && commentVal.length === 0) {
+    // style the fields' outline in #error color
+    const comments__textarea = document.querySelector(".comments__textarea");
+    comments__textarea.classList.add("error-state");
+    comments__textarea.innerText = "Pls, fill out the fields!";
   }
 };
 const form = document.querySelector("form");
