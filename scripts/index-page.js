@@ -20,12 +20,18 @@ const comments_db = [
   },
 ];
 
+// auth
+const auth = (url) => {
+  return url + `?api_key=${key.api_key}`;
+};
+
 // window.onload(); // todo: research
 window.addEventListener("load", () => {
-  insertComments_db();
+  displayComment();
 });
 
-function insertComments_db() {
+// todo: make Fn a Axios.res as a var and pass it in
+function displayComment(comments_db) {
   const parent = document.querySelector(".default-comments");
   // clears fields to refill them
   parent.innerText = "";
@@ -89,7 +95,7 @@ const submitForm = (e) => {
     e.target.comment.value = "";
     // insert newComm infront of the db arr
     comments_db.unshift(newComment);
-    insertComments_db();
+    displayComment();
   } else if (nameVal.length === 0 && commentVal.length === 0) {
     // style the fields' outline in #error color
     const comments__textarea = document.querySelector(".comments__textarea");
@@ -113,4 +119,12 @@ function formatDate() {
   }
   let date = `${month}/${day}/${year}`;
   return date;
+}
+
+const row = document.querySelector("");
+row.addEventListener("click", activate());
+
+function activate() {
+  //  todo chec k if it  is a;rteady there and if yes, remove first
+  row.classList.add = "shows-box__li--active";
 }

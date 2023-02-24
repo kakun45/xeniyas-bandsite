@@ -32,7 +32,6 @@ const showsArr = [
 ];
 
 window.addEventListener("load", () => {
-  console.log("JS of SHOWS pge is loaded");
   populateShows(showsArr);
 });
 
@@ -40,7 +39,6 @@ function populateShows(showsArr) {
   const grandParent = document.querySelector(".shows-box--style");
 
   showsArr.forEach((element) => {
-    console.log(element);
     const child = document.createElement("li");
 
     const childLableDate = document.createElement("h3");
@@ -86,3 +84,6 @@ function populateShows(showsArr) {
     grandParent.appendChild(child);
   });
 }
+
+// find an el on 'click' 
+// add a Class '.active'
