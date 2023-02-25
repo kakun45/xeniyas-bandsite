@@ -22,9 +22,7 @@ function populateShows() {
         const childDate = document.createElement("h5");
         childDate.style.fontWeight = "600";
         // Timestamp is in ms since epoch
-        childDate.innerText = new Date(element["date"]).toLocaleDateString(
-          "en-US"
-        );
+        childDate.innerText = new Date(element["date"]).toDateString("en-US");
 
         const childLableVenue = document.createElement("h3");
         childLableVenue.innerText = "VENUE";
@@ -89,3 +87,27 @@ function populateShows() {
 //     e.parentElement.classList.add("shows-box__li--active");
 //   }
 // }
+function formatDate() {
+  const year = new Date().getFullYear(); // 2023
+  const currMonth = new Date(); // 0-based
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const month = months[currMonth.getMonth()]; // Feb
+  const day = new Date().getDate(); // 25
+  const cuDay = new Date().getDay();
+  const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  const wkDay = weekDays[cuDay];
+  return `${wkDay} ${month} ${day < 10 ? 0 + day : day} ${year}`;
+}
