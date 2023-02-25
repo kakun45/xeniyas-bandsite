@@ -105,6 +105,10 @@
     & p {
       flex: 1;
     }
+    // repeat of padding of el undeneeth
+    &:first-child {
+      padding-left: 1.125rem;
+    }
   }
   &--fake-button {
     width: 160px;

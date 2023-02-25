@@ -1,3 +1,7 @@
+// sprint-3: on comments: .GET on load, 
+// then .POST on submit, clear the DOM on: .innerHTML = ''; 
+// then .GET
+
 // auth, get key
 function auth() {
   return `https://project-1-api.herokuapp.com/comments?api_key=${key.api_key}`;
@@ -5,21 +9,21 @@ function auth() {
 
 // window.onload(); // todo: research
 window.addEventListener("load", () => {
-  request();
+  displayComments();
 });
 
 // todo: make Fn a Axios.res as a var and pass it in
-const request = () => {
+const displayComments = () => {
   axios
     .get(auth())
     .then((res) => {
       const parent = document.querySelector(".default-comments");
       // clears fields to refill them
       parent.innerText = "";
-      res.data.sort( (a,b) => b.timestamp - a.timestamp )
+      // the newest comments being at the top
+      res.data.sort((a, b) => b.timestamp - a.timestamp);
 
       for (let i = 0; i < res.data.length; i++) {
-
         const child = document.createElement("div");
         child.classList.add("comments__child");
 
@@ -68,52 +72,46 @@ const request = () => {
 const submitForm = (e) => {
   e.preventDefault();
 
-  //todo: clear whole container
   const nameVal = e.target.name.value;
   const commentVal = e.target.comment.value;
   // strip input of before/after spaces
   nameVal.trim();
   commentVal.trim();
   // validate input fields
-  // if (nameVal.length > 0 && commentVal.length > 0) {
-  // let newComment = {
-  //   name: nameVal,
-  //   timestamp: Date.now(),
-  //   comment: commentVal,
-  // };
-
-  axios
-    .post(
-      auth(),
-      {
-        name: nameVal,
-        comment: commentVal,
-      },
-      {
-        headers: { "content-type": "application/json" },
-      }
-    )
-    .then((res) => {
-      console.log("sent post");
-      request();
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
-  // todo: use form.reset()
-  e.target.name.value = "";
-  e.target.comment.value = "";
-  // insert newComm infront of the db arr
-  // comments_db.unshift(newComment);
-  // displayComment();
-  // } else if (nameVal.length === 0 && commentVal.length === 0) {
-  //   // style the fields' outline in #error color
-  //   const comments__textarea = document.querySelector(".comments__textarea");
-  //   comments__textarea.classList.add("error-state");
-  //   comments__textarea.innerText = "Pls, fill out the fields!";
-  // }
+  if (
+    nameVal.length === 0 ||
+    commentVal.length === 0 ||
+    e.target.comment.value === "Pls, fill out the fields!"
+  ) {
+    // style the fields' outline in #error color
+    const comments__textarea = document.querySelector(".comments__textarea");
+    comments__textarea.classList.add("error-state");
+    comments__textarea.innerText = "Pls, fill out the fields!";
+  } else if (nameVal.length > 0 && commentVal.length > 0) {
+    axios
+      .post(
+        auth(),
+        {
+          name: nameVal,
+          comment: commentVal,
+        },
+        {
+          headers: { "content-type": "application/json" },
+        }
+      )
+      .then((res) => {
+        // get again after "post sent"
+        displayComments();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // clear whole container
+    e.target.name.value = "";
+    e.target.comment.value = "";
+  }
 };
+
 const form = document.querySelector("form");
 form.addEventListener("submit", submitForm);
 
@@ -131,5 +129,3 @@ function formatDate() {
   let date = `${month}/${day}/${year}`;
   return date;
 }
-
-// on comments: .GET on load, then .POST on submit, clear the DOM on: .innerHTML = ''; then .GET
