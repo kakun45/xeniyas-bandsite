@@ -32,9 +32,10 @@
   justify-content: center;
   flex-direction: column;
   &__title {
-    @include mobile {
-      width: 80%;
-    }
+    // @include mobile {
+    // for mobile Shows Pge 2 liner
+    width: 80%;
+    // }
     @include tablet {
     }
     @include desktop {

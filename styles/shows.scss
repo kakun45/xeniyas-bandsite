@@ -6,9 +6,9 @@
   background-position: 16% 57%; // to position img in a view
   @include hero-base("./../assets/images/hero-shows.jpg");
   &__title--padding {
-    @include mobile {
+    // @include mobile {
       margin: 1rem 0 0 1rem;
-    }
+    // }
     @include tablet {
       margin: 1rem 0 0 2rem;
     }
@@ -78,7 +78,6 @@
       &:hover {
         background-color: $secondary-alabaster;
       }
-      // full name is: shows-box__li--active
       &--active {
         background-color: $secondary-mercury;
       }
@@ -94,6 +93,7 @@
 }
 
 .tablet-header {
+  // mobile must be here! bc it starts none!
   @include mobile {
     display: none;
   }
@@ -105,7 +105,7 @@
     & p {
       flex: 1;
     }
-    // repeat of padding of el undeneeth
+    // repeat of padding of el underneath
     &:first-child {
       padding-left: 1.125rem;
     }
@@ -121,7 +121,7 @@
 // button for shows page
 .comment-button2 {
   @extend .comment-button;
-  //  space above a button on mobile
+  //  space above a button on mobile ONLY! Leave here for comprehension!
   @include mobile {
     margin-top: 1rem;
   }

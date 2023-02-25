@@ -12,7 +12,6 @@ function populateShows() {
   axios
     .get(auth())
     .then((res) => {
-      // console.log(res.data);
       res.data.forEach((element) => {
         const child = document.createElement("li");
 
@@ -75,18 +74,6 @@ function populateShows() {
     });
 }
 
-// function activate(e) {
-//   let selectedEl = document.querySelector(".shows-box__li--active");
-//   if (selectedEl) {
-//     // remove that class
-//     selectedEl.classList.remove("shows-box__li--active");
-//     e.parentElement.classList.add("shows-box__li--active");
-//   } else {
-//     // const row = document.querySelector("shows-box__li");
-//     //  todo: check if it  is a;rteady there and if yes, remove first
-//     e.parentElement.classList.add("shows-box__li--active");
-//   }
-// }
 function formatDate() {
   const year = new Date().getFullYear(); // 2023
   const currMonth = new Date(); // 0-based
