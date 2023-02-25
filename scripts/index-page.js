@@ -1,107 +1,118 @@
-// You must have an array in JavaScript with 3 default comment objects to start. Comments must have a name, a timestamp, and the comment text.
-const comments_db = [
-  {
-    name: "Connor Walton",
-    timestamp: "02/17/2021",
-    comment:
-      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-  },
-  {
-    name: "Emilie Beach",
-    timestamp: "01/09/2021",
-    comment:
-      "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-  },
-  {
-    name: "Miles Acosta",
-    timestamp: "12/20/2020", // todo: use formatDate()
-    comment:
-      "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-  },
-];
-
-// auth
-const auth = (url) => {
-  return url + `?api_key=${key.api_key}`;
-};
+// auth, get key
+function auth() {
+  return `https://project-1-api.herokuapp.com/comments?api_key=${key.api_key}`;
+}
 
 // window.onload(); // todo: research
 window.addEventListener("load", () => {
-  displayComment();
+  request();
 });
 
 // todo: make Fn a Axios.res as a var and pass it in
-function displayComment(comments_db) {
-  const parent = document.querySelector(".default-comments");
-  // clears fields to refill them
-  parent.innerText = "";
-  for (let i = 0; i < comments_db.length; i++) {
-    const child = document.createElement("div");
-    child.classList.add("comments__child");
+const request = () => {
+  axios
+    .get(auth())
+    .then((res) => {
+      const parent = document.querySelector(".default-comments");
+      // clears fields to refill them
+      parent.innerText = "";
+      res.data.sort( (a,b) => b.timestamp - a.timestamp )
 
-    // create a divider
-    const divider = document.createElement("hr");
-    divider.classList.add("divider");
+      for (let i = 0; i < res.data.length; i++) {
 
-    // a gray circle for an avatar
-    const avatar = document.createElement("div");
-    avatar.classList.add("comments__avatar");
+        const child = document.createElement("div");
+        child.classList.add("comments__child");
 
-    // create a comment el: name,date,text
-    const commentTitle = document.createElement("h3");
-    const commentDate = document.createElement("p");
-    commentDate.classList.add("comment__date");
-    const commentText = document.createElement("p");
-    commentTitle.innerText = comments_db[i]["name"];
-    commentDate.innerText = comments_db[i]["timestamp"];
-    commentText.innerText = comments_db[i]["comment"];
+        // create a divider
+        const divider = document.createElement("hr");
+        divider.classList.add("divider");
 
-    // titleHolder & contentHolder
-    const titleHolder = document.createElement("div");
-    titleHolder.classList.add("comments__titleHolder");
-    titleHolder.appendChild(commentTitle);
-    titleHolder.appendChild(commentDate);
+        // a gray circle for an avatar
+        const avatar = document.createElement("div");
+        avatar.classList.add("comments__avatar");
 
-    const contentHolder = document.createElement("div");
-    contentHolder.classList.add("comments__contentHolder");
-    contentHolder.appendChild(titleHolder);
-    contentHolder.appendChild(commentText);
+        // create a comment el: name,date,text
+        const commentTitle = document.createElement("h3");
+        const commentDate = document.createElement("p");
+        commentDate.classList.add("comment__date");
+        const commentText = document.createElement("p");
+        commentTitle.innerText = res.data[i]["name"];
+        // Timestamp is in ms since epoch
+        commentDate.innerText = new Date(
+          res.data[i]["timestamp"]
+        ).toLocaleDateString("en-US");
+        commentText.innerText = res.data[i]["comment"];
 
-    // put an el together
-    child.appendChild(avatar);
-    child.appendChild(contentHolder);
-    parent.appendChild(child);
+        // titleHolder & contentHolder
+        const titleHolder = document.createElement("div");
+        titleHolder.classList.add("comments__titleHolder");
+        titleHolder.appendChild(commentTitle);
+        titleHolder.appendChild(commentDate);
 
-    parent.appendChild(divider);
-  }
-}
+        const contentHolder = document.createElement("div");
+        contentHolder.classList.add("comments__contentHolder");
+        contentHolder.appendChild(titleHolder);
+        contentHolder.appendChild(commentText);
+
+        // put an el together
+        child.appendChild(avatar);
+        child.appendChild(contentHolder);
+        parent.appendChild(child);
+
+        parent.appendChild(divider);
+      }
+    })
+    .catch((err) => console.log(err));
+};
 
 const submitForm = (e) => {
   e.preventDefault();
 
+  //todo: clear whole container
   const nameVal = e.target.name.value;
   const commentVal = e.target.comment.value;
   // strip input of before/after spaces
   nameVal.trim();
   commentVal.trim();
   // validate input fields
-  if (nameVal.length > 0 && commentVal.length > 0) {
-    let newComment = {
-      name: nameVal,
-      timestamp: formatDate(),
-      comment: commentVal,
-    };
-    e.target.name.value = "";
-    e.target.comment.value = "";
-    // insert newComm infront of the db arr
-    comments_db.unshift(newComment);
-    displayComment();
-  } else if (nameVal.length === 0 && commentVal.length === 0) {
-    // style the fields' outline in #error color
-    const comments__textarea = document.querySelector(".comments__textarea");
-    comments__textarea.classList.add("error-state");
-    comments__textarea.innerText = "Pls, fill out the fields!";
-  }
+  // if (nameVal.length > 0 && commentVal.length > 0) {
+  // let newComment = {
+  //   name: nameVal,
+  //   timestamp: Date.now(),
+  //   comment: commentVal,
+  // };
+
+  axios
+    .post(
+      auth(),
+      {
+        name: nameVal,
+        comment: commentVal,
+      },
+      {
+        headers: { "content-type": "application/json" },
+      }
+    )
+    .then((res) => {
+      console.log("sent post");
+      request();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  // todo: use form.reset()
+  e.target.name.value = "";
+  e.target.comment.value = "";
+  // insert newComm infront of the db arr
+  // comments_db.unshift(newComment);
+  // displayComment();
+  // } else if (nameVal.length === 0 && commentVal.length === 0) {
+  //   // style the fields' outline in #error color
+  //   const comments__textarea = document.querySelector(".comments__textarea");
+  //   comments__textarea.classList.add("error-state");
+  //   comments__textarea.innerText = "Pls, fill out the fields!";
+  // }
 };
 const form = document.querySelector("form");
 form.addEventListener("submit", submitForm);
@@ -121,10 +132,4 @@ function formatDate() {
   return date;
 }
 
-const row = document.querySelector("");
-row.addEventListener("click", activate());
-
-function activate() {
-  //  todo chec k if it  is a;rteady there and if yes, remove first
-  row.classList.add = "shows-box__li--active";
-}
+// on comments: .GET on load, then .POST on submit, clear the DOM on: .innerHTML = ''; then .GET
