@@ -98,3 +98,4 @@ function formatDate() {
   const wkDay = weekDays[cuDay];
   return `${wkDay} ${month} ${day < 10 ? 0 + day : day} ${year}`;
 }
+

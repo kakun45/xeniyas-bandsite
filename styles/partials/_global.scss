@@ -10,9 +10,9 @@
 
 h1 {
   // @include mobile {
-    font-size: 1.5rem; //24px
-    line-height: 2rem; //32px
-    font-weight: 700;
+  font-size: 1.5rem; //24px
+  line-height: 2rem; //32px
+  font-weight: 700;
   // }
   @include tablet {
     font-size: 3.75rem; //60px
@@ -23,9 +23,9 @@ h1 {
 
 h2 {
   // @include mobile {
-    font-size: 1.5rem; //24px
-    line-height: 2rem; //32px
-    font-weight: 600;
+  font-size: 1.5rem; //24px
+  line-height: 2rem; //32px
+  font-weight: 600;
   // }
   @include tablet {
     font-size: 2.25rem; //36px
@@ -35,9 +35,9 @@ h2 {
 
 h3 {
   // @include mobile {
-    font-size: 0.875rem; //14px
-    line-height: 1.375rem; //22px
-    font-weight: 500;
+  font-size: 0.875rem; //14px
+  line-height: 1.375rem; //22px
+  font-weight: 500;
   // }
   @include tablet {
     font-size: 1.5rem; //24px
@@ -51,8 +51,8 @@ body {
   font-family: $font;
   font-weight: 400;
   // @include mobile {
-    font-size: 0.8125rem; // 13px based of the typography guide
-    line-height: 1.125rem; // 18px
+  font-size: 0.8125rem; // 13px based of the typography guide
+  line-height: 1.125rem; // 18px
   // }
   @include tablet {
     font-size: 0.875rem; // 14px based of the typography guide
@@ -76,36 +76,36 @@ body {
   &__nav-item--padding:hover {
     border-bottom: 3px solid $primary-white;
   }
-  @include mobile {
-    padding: 1rem 0 0; // this will move underline on nav if added
-    background-color: $primary-bandsite;
-    text-align: center;
+  // @include mobile {
+  padding: 1rem 0 0; // this will move underline on nav if added
+  background-color: $primary-bandsite;
+  text-align: center;
 
-    &__logo {
-      padding-left: 0rem;
-    }
-    &__nav {
-      display: flex;
-      justify-content: space-around;
-      padding: 0.5rem 0 0;
-    }
-    &__nav-item--padding {
-      padding-left: 2rem;
-    }
-    &__nav-item {
-      width: 50%;
-      color: $secondary-mercury;
-      text-decoration: none;
-      list-style-type: none;
-    }
-    // this is <li> child for nav-item.
-    li {
-      padding-bottom: 0.5rem;
-      @include desktop {
-        padding-bottom: 0.7rem;
-      }
+  &__logo {
+    padding-left: 0rem;
+  }
+  &__nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem 0 0;
+  }
+  &__nav-item--padding {
+    padding-left: 2rem;
+  }
+  &__nav-item {
+    width: 50%;
+    color: $secondary-mercury;
+    text-decoration: none;
+    list-style-type: none;
+  }
+  // this is <li> child for nav-item.
+  li {
+    padding-bottom: 0.5rem;
+    @include desktop {
+      padding-bottom: 0.7rem;
     }
   }
+  // }
 
   // .header for a tablet
   @include tablet {
@@ -132,7 +132,7 @@ body {
 
 .padding-left {
   // @include mobile {
-    padding-left: 1rem;
+  padding-left: 1rem;
   // }
   @include tablet {
     padding-left: 2rem;
@@ -145,7 +145,7 @@ body {
 .--headline {
   // padding before/after headlines:
   // @include mobile {
-    padding: 1.5rem 0 1rem; // 24px, 0 16px
+  padding: 1.5rem 0 1rem; // 24px, 0 16px
   // }
   @include tablet {
     padding: 3rem 0 2.25rem; // 48px, 0 36px
@@ -154,7 +154,7 @@ body {
 
 .--padding {
   // @include mobile {
-    padding: 0 1rem 1.5rem;
+  padding: 0 1rem 1.5rem;
   // }
   @include tablet {
     padding: 0 2rem 1.5rem;
@@ -168,7 +168,7 @@ footer,
 .shows {
   // padding between conponents
   // @include mobile {
-    padding: 0 1rem 1rem; //16px
+  padding: 0 1rem 1rem; //16px
   // }
   @include tablet {
     // tablet & up gets extra centered
@@ -198,11 +198,18 @@ footer,
   background-image: url("./../assets/images/Mohan-muruge.jpg");
 }
 
+.api--img {
+  @extend .comments__avatar;
+  background-image: url(
+    "https://images.dog.ceo/breeds/coonhound/n02089078_4544.jpg"
+  );
+}
+
 input[type="text"],
 textarea {
   width: 100%;
   // @include mobile {
-    height: 2.25rem; // 36px
+  height: 2.25rem; // 36px
   // }
   @include tablet {
     height: 3rem; // 48px
@@ -214,7 +221,7 @@ textarea {
   background-color: $secondary-alabaster;
   margin: 0.25rem 0 1.25rem; // 4px on all screen Sz
   // @include mobile {
-    padding: 0.75rem;
+  padding: 0.75rem;
   // }
   @include tablet {
     padding: 1rem;
@@ -224,7 +231,7 @@ textarea {
 input[type="submit"],
 .comment-button {
   // @include mobile {
-    width: 100%;
+  width: 100%;
   // }
   height: 2.5rem; //40px for all screen Sz
   margin: 0 0 0.5rem;
@@ -284,7 +291,7 @@ footer {
 
   &__logo {
     // @include mobile {
-      display: none;
+    display: none;
     // }
     @include tablet {
       display: inline;
@@ -320,7 +327,7 @@ footer {
 
   &__copyright {
     // @include mobile {
-      font-size: 0.85em;
+    font-size: 0.85em;
     // }
     @include tablet {
       padding-top: 3rem;
