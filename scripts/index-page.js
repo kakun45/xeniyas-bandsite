@@ -149,7 +149,7 @@ const submitForm = (e) => {
 const form = document.querySelector("form");
 form.addEventListener("submit", submitForm);
 
-// use to format date on added comment
+// format today date on added comment: MM/DD/YYYY
 function formatDate() {
   const today = new Date();
   let day = today.getDate();
