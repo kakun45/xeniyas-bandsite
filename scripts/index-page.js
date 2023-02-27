@@ -6,7 +6,9 @@
 function auth() {
   return `https://project-1-api.herokuapp.com/comments?api_key=${key.api_key}`;
 }
-
+function putUrl(id) {
+  return `https://project-1-api.herokuapp.com/comments/${id}/like?api_key=${key.api_key}`;
+}
 // window.onload(); // todo: research
 window.addEventListener("load", () => {
   displayComments();
@@ -78,6 +80,18 @@ function createChild(parent, element, avatar) {
     "en-US"
   );
   commentText.innerText = element["comment"];
+  // heart, likeCount
+  const commentLike = document.createElement("div");
+  commentLike.classList.add("heart");
+
+  const likeCount = document.createElement("p");
+  likeCount.classList.add("like-count");
+  // don't display 0 likes!
+  if (element["likes"] !== 0) {
+    likeCount.innerText = element["likes"];
+  }
+  addEventOnLikeBtn(commentLike, element["likes"], element["id"]);
+  commentLike.appendChild(likeCount);
 
   // titleHolder & contentHolder
   const titleHolder = document.createElement("div");
@@ -89,6 +103,7 @@ function createChild(parent, element, avatar) {
   contentHolder.classList.add("comments__contentHolder");
   contentHolder.appendChild(titleHolder);
   contentHolder.appendChild(commentText);
+  contentHolder.appendChild(commentLike);
 
   // put an el together
   child.appendChild(avatar);
@@ -162,4 +177,30 @@ function formatDate() {
   }
   let date = `${month}/${day}/${year}`;
   return date;
+}
+
+// Comment Like Functionality
+function addEventOnLikeBtn(heart, heartCount, id) {
+  heart.addEventListener("click", () => {
+    likeFn(heart, heartCount, id);
+  });
+}
+
+function likeFn(btn, heartCount, id) {
+  //  When clicked, this button triggers a function that likes the comment both from the API
+  // and also from the DOM. Information about the comment PUT endpoint can be found in the API documentation.
+  console.log("like touched", heartCount);
+  btn.classList.add("heart--active");
+  heartCount++;
+  console.log("like touched", heartCount);
+  axios
+    .put(putUrl(id))
+    .then((res) => {
+      const newlikesCount = res.data.likes;
+      // push into DOM with another call
+      displayComments();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
