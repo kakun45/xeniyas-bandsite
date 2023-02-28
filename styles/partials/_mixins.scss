@@ -32,10 +32,9 @@
   justify-content: center;
   flex-direction: column;
   &__title {
-    // @include mobile {
     // for mobile Shows Pge 2 liner
     width: 80%;
-    // }
+
     @include tablet {
     }
     @include desktop {
@@ -47,8 +46,3 @@
     font-weight: 500;
   }
 }
-
-// @mixin avatar--img($url) {
-//   @extend .comments__avatar;
-//   background-image: url($url);
-// }

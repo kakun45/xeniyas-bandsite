@@ -39,10 +39,10 @@
   }
   &__text {
     display: flex;
-    // @include mobile {
+    // for mobile
     flex-wrap: wrap; // 1 col text
     gap: 1rem;
-    // }
+
     @include tablet {
       flex-wrap: nowrap; // two cols text
       gap: 2rem;

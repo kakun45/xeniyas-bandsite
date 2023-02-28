@@ -6,9 +6,9 @@
   background-position: 16% 57%; // to position img in a view
   @include hero-base("./../assets/images/hero-shows.jpg");
   &__title--padding {
-    // @include mobile {
-      margin: 1rem 0 0 1rem;
-    // }
+    // for mobile
+    margin: 1rem 0 0 1rem;
+
     @include tablet {
       margin: 1rem 0 0 2rem;
     }

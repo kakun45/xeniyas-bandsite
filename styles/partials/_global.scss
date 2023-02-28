@@ -9,11 +9,11 @@
 }
 
 h1 {
-  // @include mobile {
+  // for mobile
   font-size: 1.5rem; //24px
   line-height: 2rem; //32px
   font-weight: 700;
-  // }
+
   @include tablet {
     font-size: 3.75rem; //60px
     line-height: 4.25rem; //68px
@@ -22,11 +22,10 @@ h1 {
 }
 
 h2 {
-  // @include mobile {
+  // for mobile
   font-size: 1.5rem; //24px
   line-height: 2rem; //32px
   font-weight: 600;
-  // }
   @include tablet {
     font-size: 2.25rem; //36px
     line-height: 2.75rem; //44px
@@ -34,11 +33,11 @@ h2 {
 }
 
 h3 {
-  // @include mobile {
+  // for mobile
   font-size: 0.875rem; //14px
   line-height: 1.375rem; //22px
   font-weight: 500;
-  // }
+
   @include tablet {
     font-size: 1.5rem; //24px
     line-height: 2rem; //32px
@@ -50,10 +49,10 @@ h3 {
 body {
   font-family: $font;
   font-weight: 400;
-  // @include mobile {
+  // for mobile
   font-size: 0.8125rem; // 13px based of the typography guide
   line-height: 1.125rem; // 18px
-  // }
+
   @include tablet {
     font-size: 0.875rem; // 14px based of the typography guide
     line-height: 1.25rem; // 20px
@@ -76,7 +75,7 @@ body {
   &__nav-item--padding:hover {
     border-bottom: 3px solid $primary-white;
   }
-  // @include mobile {
+  // for mobile {
   padding: 1rem 0 0; // this will move underline on nav if added
   background-color: $primary-bandsite;
   text-align: center;
@@ -131,9 +130,9 @@ body {
 }
 
 .padding-left {
-  // @include mobile {
+  // for mobile
   padding-left: 1rem;
-  // }
+
   @include tablet {
     padding-left: 2rem;
   }
@@ -144,18 +143,17 @@ body {
 
 .--headline {
   // padding before/after headlines:
-  // @include mobile {
+  // for mobile
   padding: 1.5rem 0 1rem; // 24px, 0 16px
-  // }
   @include tablet {
     padding: 3rem 0 2.25rem; // 48px, 0 36px
   }
 }
 
 .--padding {
-  // @include mobile {
+  // for mobile
   padding: 0 1rem 1.5rem;
-  // }
+
   @include tablet {
     padding: 0 2rem 1.5rem;
   }
@@ -167,9 +165,9 @@ footer,
 .comments,
 .shows {
   // padding between conponents
-  // @include mobile {
+  // for mobile
   padding: 0 1rem 1rem; //16px
-  // }
+
   @include tablet {
     // tablet & up gets extra centered
     padding: 0 2.25rem 2.25rem; //36px in style
@@ -200,17 +198,15 @@ footer,
 
 .api--img {
   @extend .comments__avatar;
-  background-image: url(
-    "https://images.dog.ceo/breeds/coonhound/n02089078_4544.jpg"
-  );
+  background-image: url("https://images.dog.ceo/breeds/coonhound/n02089078_4544.jpg");
 }
 
 input[type="text"],
 textarea {
   width: 100%;
-  // @include mobile {
+  // for mobile
   height: 2.25rem; // 36px
-  // }
+
   @include tablet {
     height: 3rem; // 48px
   }
@@ -220,9 +216,9 @@ textarea {
   border: 1px solid $secondary-mercury;
   background-color: $secondary-alabaster;
   margin: 0.25rem 0 1.25rem; // 4px on all screen Sz
-  // @include mobile {
+  // for mobile
   padding: 0.75rem;
-  // }
+
   @include tablet {
     padding: 1rem;
   }
@@ -230,9 +226,8 @@ textarea {
 
 input[type="submit"],
 .comment-button {
-  // @include mobile {
+  // for mobile
   width: 100%;
-  // }
   height: 2.5rem; //40px for all screen Sz
   margin: 0 0 0.5rem;
   @include tablet {
@@ -290,9 +285,9 @@ footer {
   }
 
   &__logo {
-    // @include mobile {
+    // for mobile
     display: none;
-    // }
+
     @include tablet {
       display: inline;
       width: 7.5rem; //120px
@@ -326,9 +321,9 @@ footer {
   }
 
   &__copyright {
-    // @include mobile {
+    // for mobile
     font-size: 0.85em;
-    // }
+
     @include tablet {
       padding-top: 3rem;
     }
